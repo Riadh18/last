@@ -14,6 +14,7 @@ const isAuth=async(req,res,next)=>{
         const found  = await User.findById(decoded.id)
 
         req.user = found
+        // console.log('user',found)
         next()
     } catch (error) {
         res.status(500).send({errors : [{Msg : 'Not auth'}]})

@@ -2,6 +2,7 @@ import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { current } from "../Redux/Actions/AuthActions"
 import Card from 'react-bootstrap/Card';
+import { Link } from "react-router-dom";
 
 const Profile=()=>{
     
@@ -18,26 +19,18 @@ const Profile=()=>{
     
     return(
         <>
-      {[
-        'Dark'
-      ].map((variant) => (
-        <Card
-          bg={variant.toLowerCase()}
-          key={variant}
-          text={variant.toLowerCase() === 'light' ? 'dark' : 'white'}
-          style={{ width: '18rem' }}
-          className="mb-2"
-        >
-          <Card.Body>
-            <Card.Title>{user.name}</Card.Title>
-            <Card.Text>
-              {
-                user.email
-              }
-            </Card.Text>
-          </Card.Body>
-        </Card>
-      ))}
+     
+        <Card style={{ width: '18rem' }}>
+        <Card.Img variant="top" src={user.picture} />
+        <Card.Body>
+          <Card.Title><Link to={`/DescProfile/${user._id}`}>{user.name}</Link></Card.Title>
+          <Card.Text>
+            {user.email}
+          </Card.Text>
+          {/* <Button variant="primary">Go somewhere</Button> */}
+        </Card.Body>
+      </Card>
+  
     </>
   );
 }

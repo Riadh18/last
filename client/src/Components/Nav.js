@@ -1,42 +1,65 @@
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
-import { Link } from 'react-router-dom';
+import {Navbar,Container,Nav} from "react-bootstrap"
+import { useDispatch, useSelector } from "react-redux"
+import { Link, useNavigate } from "react-router-dom"
+import { logout } from "../Redux/Actions/AuthActions"
+import logo from './../pic/logo.png'
+import './Nav.css';
 
-function CollapsibleExample() {
-  return (
-    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-      <Container>
-        <Navbar.Brand as={Link}to='/'>Home</Navbar.Brand>
-        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-        <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="me-auto">
-            <Nav.Link href="#features">Features</Nav.Link>
-            <Nav.Link href="#pricing">Pricing</Nav.Link>
-            <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Separated link
-              </NavDropdown.Item>
-            </NavDropdown>
+const Navv=()=>{
+  const token = localStorage.getItem("token")
+
+  const user = useSelector(state=> state.AuthReducer.user)
+
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+    return(
+        <Navbar>
+        <Container>
+          
+          <Nav className="ml-auto">
+            <Nav.Link as={Link} to='/'>Home</Nav.Link>
+            
+            
+            
+           
+            {
+              (token && user.role == "user") ?
+              <>
+                 <Nav.Link as={Link} to='/profile'>Profile</Nav.Link>
+                 <Nav.Link as={Link} to='/ListMyCommandes'>My Commandes</Nav.Link>
+                 <Nav.Link as={Link} to='/ListProduct'>Products</Nav.Link>
+                 <Nav.Link onClick={()=>{dispatch(logout());navigate('/')}}>Logout</Nav.Link>
+                 
+              </>
+              :
+              (token && user.role == "admin") ?
+              <>
+                 <Nav.Link as={Link} to='/profile'>Profile</Nav.Link>
+                 <Nav.Link as={Link} to='/ListCommande'>Commandes</Nav.Link>
+                 <Nav.Link as={Link} to='/ListProduct'>Products</Nav.Link>
+                 <Nav.Link as={Link} to='/AddProduct'>Add products</Nav.Link>
+                 <Nav.Link as={Link} to='/ListUser'>List of Users</Nav.Link>
+                 <Nav.Link onClick={()=>{dispatch(logout());navigate('/')}}>Logout</Nav.Link>
+                 
+              </>
+              :
+              <>
+                <Nav.Link as={Link} to='/register'>Register</Nav.Link>
+                <Nav.Link as={Link} to='/login' >Login</Nav.Link>
+                
+              </>
+            }
+            {/* <Nav.Link as={Link} to='/'>< img className="logo"   src={logo} title="logo"/></Nav.Link> */}
+            {/* <Nav.Link as={Link} to='/ListUser'>List of Users</Nav.Link>
+            <Nav.Link as={Link} to='/ListProduct'>products</Nav.Link>
+            <Nav.Link as={Link} to='/AddProduct'>Add products</Nav.Link> */}
+            
+
+
+
           </Nav>
-          <Nav>
-            <Nav.Link as={Link}to='Profile'>Profile</Nav.Link>
-            <Nav.Link eventKey={2}as={Link}to='Register'>
-              Register
-            </Nav.Link>
-            <Nav.Link as={Link}to='Login'>Login</Nav.Link>
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
-  );
+        </Container>
+      </Navbar>
+    )
 }
-
-export default CollapsibleExample;
+export default Navv

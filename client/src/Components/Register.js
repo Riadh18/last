@@ -14,7 +14,7 @@ const Register=()=>{
 
     const handleRegister=(a)=>{
       a.preventDefault()
-      dispatch(register({name,email,password},navigate))
+      dispatch(register({name,email,password,picture : "https://www.transparentpng.com/thumb/user/single-user-icon-png-free--rLHSHx.png",role:"user"},navigate))
     }
     return(
         <Form>

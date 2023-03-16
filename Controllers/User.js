@@ -59,12 +59,39 @@ exports.signIn=async(req,res)=>{
 }
 exports.getUsers=async(req,res)=>{
     try {
-
-        const users= await User.find()
-        res.status(200).sed({msg:'List of users:',users})
-        
+        const users = await User.find()
+        res.status(200).send({Msg : "List of users",users})
     } catch (error) {
-        res.status(500).sed({errors:[{msg:'cant get users'}]})
-        
+        res.status(500).send('Could not get contacts')
     }
 }
+exports.getUser=async(req,res)=>{
+    try{
+        const {id} = req.params
+        const user=await User.findById(id)
+        res.status(200).send({msg:'user',user})
+    }catch(error){
+        res.status(500).send({errors:[{msg:'cant get user'}]})
+
+    }
+}
+exports.deleteUser=async(req,res)=>{
+    try{
+        const {id} = req.params
+        const user=await User.findByIdAndDelete(id)
+        res.status(200).send({msg:'user deleted',user})
+    }
+        catch(error){
+            res.status(500).send({errors:[{msg:'error while deleting user '}]})
+        }
+    }
+exports.updateUser=async(req,res)=>{
+    try{
+        const {id} = req.params
+        const user =await User.findByIdAndUpdate(id,{$set : req.body})
+        res.status(200).send({msg:'user updated',user})
+    } catch(error){
+        res.status(500).send({msg:'cant update'})
+    }
+}
+
