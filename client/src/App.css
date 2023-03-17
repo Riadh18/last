@@ -1,0 +1,74 @@
+.descpic{
+    width: 20%;
+    
+}
+.cards{
+    margin-left:2% ;
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.profile{
+   margin-top: 5%;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.profile a{
+    text-decoration: none;
+    color: black;
+}
+
+.product{
+    margin-top: 5%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.product a{
+    text-decoration: none;
+    color: black;
+}
+
+.users{
+    margin-top: 5%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.users a{
+    text-decoration: none;
+    color: black;
+}
+
+.buttUser{
+    display: flex;
+    justify-content: space-around;
+}
+
+.red{
+    color: red;
+}
+
+.green{
+    color: green;
+}
+
+.formm{
+    margin-top: 5%;
+    display: flex;
+    justify-content: space-around;
+}
+.text{
+    
+    margin: 16px 0;
+    padding: 13px;
+    border: 1px solid #999;
+    margin-left: 4%;
+    margin-right: 5%;
+    background-color: bisque;
+}
+

@@ -22,14 +22,16 @@ const CardUser=({el})=>{
       // </Card>
 
       <Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src={el.picture} />
+      <Card.Img style={{ width:"286px", height:"214px"}} variant="top" src={el.picture} />
       <Card.Body>
-        <Card.Title><Link to={`/DescProfile/${el._id}`}>{el.name}</Link></Card.Title>
+        <Card.Title>{el.name}</Card.Title>
         <Card.Text>
           {el.email}
         </Card.Text>
-          <Card.Link as={Link} to={`/edituser/${el._id}`}>Edit</Card.Link>
+        <div className="buttUser"> 
+          <Button as={Link} to={`/edituser/${el._id}`}>Edit</Button>
          <Button variant="danger" onClick={()=>dispatch(deleteUser(el._id))} >Delete</Button>
+         </div>
       </Card.Body>
     </Card>
       )

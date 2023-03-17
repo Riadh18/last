@@ -12,7 +12,7 @@ const ListUser=()=>{
 
 
     return(
-        <div>
+        <div className="users">
         {
             users && users.map(el=> <CardUser el={el}/>)
         }

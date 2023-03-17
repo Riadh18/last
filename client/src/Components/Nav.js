@@ -2,7 +2,6 @@ import {Navbar,Container,Nav} from "react-bootstrap"
 import { useDispatch, useSelector } from "react-redux"
 import { Link, useNavigate } from "react-router-dom"
 import { logout } from "../Redux/Actions/AuthActions"
-import logo from './../pic/logo.png'
 import './Nav.css';
 
 const Navv=()=>{

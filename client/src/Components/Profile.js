@@ -18,12 +18,12 @@ const Profile=()=>{
 
     
     return(
-        <>
+        <div className="profile">
      
         <Card style={{ width: '18rem' }}>
         <Card.Img variant="top" src={user.picture} />
         <Card.Body>
-          <Card.Title><Link to={`/DescProfile/${user._id}`}>{user.name}</Link></Card.Title>
+          <Card.Title><Link to={`/DescProfile/${user._id}`}>{user.name} <i class="fa-solid fa-gear"></i></Link></Card.Title>
           <Card.Text>
             {user.email}
           </Card.Text>
@@ -31,8 +31,7 @@ const Profile=()=>{
         </Card.Body>
       </Card>
   
-    </>
-  );
+      </div>  );
 }
     
 

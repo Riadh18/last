@@ -12,7 +12,7 @@ const Listcommande=()=>{
 
 
     return(
-        <div>
+        <div className="product">
         {
             commandes && commandes.map(el=> <Cardcommande el={el}/>)
         }

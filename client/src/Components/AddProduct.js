@@ -19,6 +19,7 @@ const AddProduct=()=>{
 
     }
         return(
+          <div className="formm">
         <Form>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Name</Form.Label>
@@ -46,6 +47,7 @@ const AddProduct=()=>{
           Submit
         </Button>
       </Form>
+      </div>
     )
 }
 export default AddProduct

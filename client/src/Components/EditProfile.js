@@ -40,7 +40,7 @@ const EditProfil=()=>{
     }
     return(<>
        { oneUser && 
-       
+       <div className="formm">
        <Form>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Name</Form.Label>
@@ -72,7 +72,8 @@ const EditProfil=()=>{
         <Button onClick={(e)=>handleEdit(e)} variant="primary" type="submit">
           Submit
         </Button>
-      </Form>}</>
+      </Form></div>}</>
+      
     )
 }
 

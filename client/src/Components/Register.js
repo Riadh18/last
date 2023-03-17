@@ -17,6 +17,7 @@ const Register=()=>{
       dispatch(register({name,email,password,picture : "https://www.transparentpng.com/thumb/user/single-user-icon-png-free--rLHSHx.png",role:"user"},navigate))
     }
     return(
+      <div className="formm">
         <Form>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Name</Form.Label>
@@ -38,6 +39,7 @@ const Register=()=>{
           Submit
         </Button>
       </Form>
+      </div>
     )
 }
 

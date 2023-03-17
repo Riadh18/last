@@ -14,7 +14,7 @@ const ListProduct=()=>{
 
 
     return(
-        <div>
+        <div className="product">
         {
             products && products.map(el=> <CardProduct el={el}/>)
         }
